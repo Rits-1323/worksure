@@ -120,16 +120,16 @@ export default function LandingPage() {
           <div className="mt-10">
             <ul className="space-y-4">
               <li className="flex items-center justify-between">
-                <span className="text-lg font-medium text-gray-900">Rajesh</span>
-                <a href="mailto:rajesh@example.com" className="text-blue-600 hover:underline">rajesh@example.com</a>
+                <span className="text-lg font-medium text-gray-900">Ritvik</span>
+                <a href="mailto:rajesh@example.com" className="text-blue-600 hover:underline">ritsar14@gmail.com</a>
               </li>
               <li className="flex items-center justify-between">
-                <span className="text-lg font-medium text-gray-900">Teammate 1</span>
-                <a href="mailto:teammate1@example.com" className="text-blue-600 hover:underline">teammate1@example.com</a>
+                <span className="text-lg font-medium text-gray-900">Sayam</span>
+                <a href="mailto:teammate1@example.com" className="text-blue-600 hover:underline">ssayam200@gmail.com</a>
               </li>
               <li className="flex items-center justify-between">
-                <span className="text-lg font-medium text-gray-900">Teammate 2</span>
-                <a href="mailto:teammate2@example.com" className="text-blue-600 hover:underline">teammate2@example.com</a>
+                <span className="text-lg font-medium text-gray-900">Abhinandan</span>
+                <a href="mailto:teammate2@example.com" className="text-blue-600 hover:underline">Abhinad2132@gmail.com</a>
               </li>
             </ul>
           </div>

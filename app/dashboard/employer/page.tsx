@@ -217,42 +217,48 @@ export default function EmployerDashboard() {
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-white shadow">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 justify-between">
-            <div className="flex">
-              <div className="flex flex-shrink-0 items-center">
-                <Link href="/">
-                <h1 className="text-xl font-bold text-gray-900">WorkSure</h1>
-                </Link>
+  <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div className="flex h-16 justify-between">
+      <div className="flex">
+        <div className="flex flex-shrink-0 items-center">
+          <Link href="/" className="flex items-center text-blue-600 hover:text-blue-800">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            <span className="font-medium">Back to Home</span>
+          </Link>
+        </div>
+        <div className="ml-6 flex flex-shrink-0 items-center">
+          <h1 className="text-xl font-bold text-gray-900">WorkSure</h1>
+        </div>
+      </div>
+      <div className="flex items-center">
+        <div className="relative ml-3">
+          <div className="flex items-center gap-3">
+            <div className="hidden md:block">
+              <div className="text-right">
+                <div className="text-sm font-medium text-gray-900">Ravi Sharma</div>
+                <div className="text-xs text-gray-500">Employer</div>
               </div>
             </div>
-            <div className="flex items-center">
-              <div className="relative ml-3">
-                <div className="flex items-center gap-3">
-                  <div className="hidden md:block">
-                    <div className="text-right">
-                      <div className="text-sm font-medium text-gray-900">Ravi Sharma</div>
-                      <div className="text-xs text-gray-500">Employer</div>
-                    </div>
-                  </div>
-                  <button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                    <img
-                      className="h-8 w-8 rounded-full"
-                      src="/placeholder.svg?height=32&width=32"
-                      alt="User profile"
-                    />
-                  </button>
-                  <div className="hidden md:block">
-                    <button className="inline-flex items-center gap-1 text-sm text-gray-700">
-                      <ChevronDown className="h-4 w-4" />
-                    </button>
-                  </div>
-                </div>
-              </div>
+            <button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+              <img
+                className="h-8 w-8 rounded-full"
+                src="/placeholder.svg?height=32&width=32"
+                alt="User profile"
+              />
+            </button>
+            <div className="hidden md:block">
+              <button className="inline-flex items-center gap-1 text-sm text-gray-700">
+                <ChevronDown className="h-4 w-4" />
+              </button>
             </div>
           </div>
         </div>
-      </header>
+      </div>
+    </div>
+  </div>
+</header>
 
       {/* Main content */}
       <main className="py-10">
@@ -375,84 +381,84 @@ export default function EmployerDashboard() {
                   </div>
                   
                   <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
-                    <table className="min-w-full divide-y divide-gray-300">
-                      <thead className="bg-gray-50">
-                        <tr>
-                          <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
-                            Contractor
-                          </th>
-                          <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                            Specialty
-                          </th>
-                          <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                            Skills
-                          </th>
-                          <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                            Rating
-                          </th>
-                          <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                          Rate (INR/hr)
-                          </th>
-                          <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                            Experience
-                          </th>
-                          <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-6">
-                            <span className="sr-only">Negotiate</span>
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-gray-200 bg-white">
-                        {newContractors.map((contractor) => (
-                          <tr key={contractor.id}>
-                            <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-                              <div className="flex items-center">
-                                <div className="h-10 w-10 flex-shrink-0">
-                                  <img className="h-10 w-10 rounded-full" src={contractor.image} alt="" />
-                                </div>
-                                <div className="ml-4">
-                                  <div className="font-medium text-gray-900">{contractor.name}</div>
-                                </div>
-                              </div>
-                            </td>
-                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                            ₹{contractor.hourlyRate}
-                            </td>
-                            <td className="px-3 py-4 text-sm text-gray-500 max-w-xs">
-                              <div className="flex flex-wrap gap-1">
-                                {contractor.skills.map((skill, index) => (
-                                  <span 
-                                    key={index} 
-                                    className="inline-flex items-center rounded-full bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700"
-                                  >
-                                    {skill}
-                                  </span>
-                                ))}
-                              </div>
-                            </td>
-                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                              <div className="flex items-center">
-                                {renderStars(contractor.rating)}
-                                <span className="ml-1">{contractor.rating}</span>
-                              </div>
-                            </td>
-                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                              ${contractor.hourlyRate}
-                            </td>
-                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                              {contractor.experience}
-                            </td>
-                            <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                              <button
-                                onClick={() => handleNegotiate(contractor)}
-                                className="text-blue-600 hover:text-blue-900 font-medium"
-                              >
-                                Negotiate
-                              </button>
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
+                  <table className="min-w-full divide-y divide-gray-300">
+  <thead className="bg-gray-50">
+    <tr>
+      <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+        Contractor
+      </th>
+      <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+        Specialty
+      </th>
+      <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+        Skills
+      </th>
+      <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+        Rating
+      </th>
+      <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+        Hourly Rate
+      </th>
+      <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+        Experience
+      </th>
+      <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-6">
+        <span className="sr-only">Negotiate</span>
+      </th>
+    </tr>
+  </thead>
+  <tbody className="divide-y divide-gray-200 bg-white">
+    {newContractors.map((contractor) => (
+      <tr key={contractor.id}>
+        <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+          <div className="flex items-center">
+            <div className="h-10 w-10 flex-shrink-0">
+              <img className="h-10 w-10 rounded-full" src={contractor.image} alt="" />
+            </div>
+            <div className="ml-4">
+              <div className="font-medium text-gray-900">{contractor.name}</div>
+            </div>
+          </div>
+        </td>
+        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+          {contractor.specialty}
+        </td>
+        <td className="px-3 py-4 text-sm text-gray-500 max-w-xs">
+          <div className="flex flex-wrap gap-1">
+            {contractor.skills.map((skill, index) => (
+              <span 
+                key={index} 
+                className="inline-flex items-center rounded-full bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        </td>
+        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+          <div className="flex items-center">
+            {renderStars(contractor.rating)}
+            <span className="ml-1">{contractor.rating}</span>
+          </div>
+        </td>
+        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+          ₹{contractor.hourlyRate}
+        </td>
+        <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+          {contractor.experience}
+        </td>
+        <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+          <button
+            onClick={() => handleNegotiate(contractor)}
+            className="text-blue-600 hover:text-blue-900 font-medium"
+          >
+            Negotiate
+          </button>
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
                   </div>
                 </div>
               </div>

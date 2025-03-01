@@ -142,7 +142,7 @@ export default function EmployerLogin() {
             <div className="mt-6">
               <p className="text-center text-sm text-gray-600">
                 Don't have an account?{" "}
-                <Link href="/dashboard/signup/employers" className="font-medium text-blue-600 hover:text-blue-500">
+                <Link href="/dashboard/signup/users" className="font-medium text-blue-600 hover:text-blue-500">
                   Sign up
                 </Link>
               </p>
