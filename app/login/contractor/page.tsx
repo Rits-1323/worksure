@@ -1,12 +1,9 @@
 "use client"
 
-import type React from "react"
-
-import { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { ArrowLeft, Eye, EyeOff } from "lucide-react"
-import axios from "axios"
 
 export default function ContractorLogin() {
   const [showPassword, setShowPassword] = useState(false)
@@ -14,77 +11,22 @@ export default function ContractorLogin() {
   const [password, setPassword] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState("")
-  const [isCheckingAuth, setIsCheckingAuth] = useState(true)
   const router = useRouter()
 
-  // Check if user is already logged in
-  useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        // Check for token in localStorage
-        const token = localStorage.getItem("token")
-        
-        if (token) {
-          // Replace the current history entry instead of pushing a new one
-          // This prevents going back to the login page after authentication
-          router.replace("/dashboard/contractor")
-        } else {
-          // No token found, allow login
-          setIsCheckingAuth(false)
-        }
-      } catch (error) {
-        console.error("Auth check error:", error)
-        setIsCheckingAuth(false)
-      }
-    }
-    
-    checkAuth()
-  }, [router])
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  // Simplified submit handler - no actual authentication
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
-    setError("")
     
-    try {
-      const response = await axios.post("/api/auth/login", {
-        email: email,
-        password: password,
-        role: "contractor"
-      })
-      
-      console.log("Authentication successful:", response.data)
-      
-      // Store authentication token if your API returns one
-      if (response.data.token) {
-        localStorage.setItem("token", response.data.token)
-      }
-      
-      // Replace the current history entry instead of pushing a new one
-      router.replace("/dashboard/contractor")
-    } catch (error) {
-      console.error("Login failed:", error)
-      
-      if (axios.isAxiosError(error) && error.response) {
-        // Handle specific error messages from the server
-        setError(error.response.data.message || "Invalid email or password")
-      } else {
-        setError("Login failed. Please try again.")
-      }
-    } finally {
+    // For development - skip actual authentication and just redirect
+    setTimeout(() => {
+      console.log("Development mode: Skipping authentication")
+      // Store a dummy token in localStorage
+      localStorage.setItem("token", "dummy-contractor-token")
+      // No authentication check, just redirect to the dashboard
+      router.push("/dashboard/contractor")
       setIsLoading(false)
-    }
-  }
-
-  // Show loading indicator while checking auth status
-  if (isCheckingAuth) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <div className="text-center">
-          <p className="text-gray-500">Checking authentication...</p>
-        </div>
-      </div>
-    )
+    }, 500) // Short delay to show loading state
   }
 
   return (

@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation"
 import { ArrowLeft, Eye, EyeOff } from "lucide-react"
 import axios from "axios"
 
-export default function UserLogin() {
+export default function EmployerLogin() {
   const [showPassword, setShowPassword] = useState(false)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -18,38 +18,15 @@ export default function UserLogin() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // setIsLoading(true)
-    // setError("")
+    setIsLoading(true)
     
-    // try {
-    //   // Fixed endpoint from register to login
-    //   const response = await axios.post("/api/auth/login", {
-    //     email: email,  // Changed from userName to email
-    //     password: password,
-    //     role: "user" // Added role for proper identification
-    //   })
-      
-    //   console.log("Authentication successful:", response.data)
-      
-    //   // Store authentication token if your API returns one
-    //   if (response.data.token) {
-    //     localStorage.setItem("token", response.data.token)
-    //   }
-      
-    //   // Redirect to dashboard
-    //   router.push("/dashboard/contractor")
-    // } catch (error) {
-    //   console.error("Login failed:", error)
-      
-    //   if (axios.isAxiosError(error) && error.response) {
-    //     // Handle specific error messages from the server
-    //     setError(error.response.data.message || "Invalid email or password")
-    //   } else {
-    //     setError("Login failed. Please try again.")
-    //   }
-    // } finally {
-    //   setIsLoading(false)
-    // }
+    // For development - skip actual authentication and just redirect
+    setTimeout(() => {
+      console.log("Development mode: Skipping authentication")
+      // No authentication check, just redirect to the dashboard
+      router.push("/dashboard/employer")
+      setIsLoading(false)
+    }, 500) // Short delay to show loading state
   }
 
   return (
@@ -59,8 +36,8 @@ export default function UserLogin() {
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back to home
         </Link>
-        <h2 className="text-center text-3xl font-bold tracking-tight text-gray-900">Contractor Login</h2>
-        <p className="mt-2 text-center text-sm text-gray-600">Sign in to access your worker management dashboard</p>
+        <h2 className="text-center text-3xl font-bold tracking-tight text-gray-900">Employer Login</h2>
+        <p className="mt-2 text-center text-sm text-gray-600">Sign in to access your job posting dashboard</p>
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
@@ -165,7 +142,7 @@ export default function UserLogin() {
             <div className="mt-6">
               <p className="text-center text-sm text-gray-600">
                 Don't have an account?{" "}
-                <Link href="/dashboard/signup/users" className="font-medium text-blue-600 hover:text-blue-500">
+                <Link href="/dashboard/signup/employers" className="font-medium text-blue-600 hover:text-blue-500">
                   Sign up
                 </Link>
               </p>
